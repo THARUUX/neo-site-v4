@@ -4,7 +4,7 @@ import {CartContextProvider} from "@/components/CartContext";
 import { useEffect } from "react";
 import AOS from "aos";
 import 'aos/dist/aos.css';
-import 'animate.css'
+import 'animate.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

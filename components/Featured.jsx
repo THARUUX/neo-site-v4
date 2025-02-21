@@ -29,14 +29,14 @@ export default function Featured({product}) {
 
   return (
     <Center>
-      <div  className='h-auto lg:min-h-screen overflow-hidden featured-div-1'>
+      <div  className='h-auto  overflow-hidden featured-div-1'>
         <div className='w-full h-full flex flex-col md:flex-row feature-inner-1 items-center featured-div-2'>
           <div className='w-2/4 flex flex-col gap-3 py-10 featured-div-2-1'>
             {/*<h1 className='text-3xl tracking-wide text-main-dark' data-aos='fade-right'>{product?.title}</h1>
             <p id='feturedDesc'  className='text-sm mb-4 mt-3 text-main-dark' data-aos='fade' data-aos-delay="500" data-aos-duration="2000">
               {product?.description}
             </p>*/}
-            <h1 className='text-3xl tracking-wide text-main-dark' data-aos='fade-left'>Diary 2025</h1>
+            <h1 className='text-3xl tracking-wide text-main-dark' data-aos='fade-left'>Custom Mugs</h1>
             <p id='feturedDesc'  className='text-sm mb-4 mt-3 text-main-dark' data-aos='fade' data-aos-delay="500" data-aos-duration="2000">
               Looking for the perfect corporate gift? Our fully customizable 2025 diaries are a sophisticated choice that combines style and functionality.
               <br />
@@ -49,7 +49,7 @@ export default function Featured({product}) {
             </p>
             <div className='flex gap-3 featured-div-2-1-1'>
               <div className=''>
-                <Link href={"/Category/66d2e69e54f2b22a9fc18f4c"}
+                <Link href={"/featured"}
                 className=' py-1 flex gap-2 bg-main px-3 text-center  addToCart-btn hover:bg-lime-500 text-white cursor-pointer'
                 data-aos='fade' data-aos-delay="1500" data-aos-duration="3000"
                 >
@@ -62,7 +62,7 @@ export default function Featured({product}) {
             </div>
           </div>
           <div className='w-2/4 h-full flex justify-center featured-div-2-2' data-aos='fade-left' data-aos-delay="1000" data-aos-duration="3000">
-            <Image src={FeatureImage} alt="Product Image" width={0} height={0} className='feature-image object-cover' />
+            <Image src={FeatureImage} alt="Product Image" width={0} height={0} className='cursor-pointer hover: duration-700 hover:scale-[1.02] object-cover' />
           </div>
         </div>
       </div>

@@ -1,0 +1,13 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+}

@@ -6,8 +6,8 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'neocreative.s3.eu-north-1.amazonaws.com',
-        port: '', // Leave empty if not using a specific port
-        pathname: '/**', // Match any pathname
+        port: '', 
+        pathname: '/**',
       },
       {
         protocol: 'https',
@@ -16,6 +16,14 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(glb|gltf)$/,  // Matches .glb and .gltf files
+      type: 'asset/resource',  // Uses the built-in Asset Modules for static files
+    });
+
+    return config;
   },
 };
 

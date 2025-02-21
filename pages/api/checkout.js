@@ -1,9 +1,11 @@
 import {mongooseConnect} from "@/lib/mongoose";
 import {Product} from "@/models/Product";
 import {Order} from "@/models/Order";
+import { MailerSend, Recipient, EmailParams } from "mailersend";
 
 
 export default async function handler(req,res) {
+  {/* mlsn.2af048a5f70859e7aa7fdfec0513606fd56008ac04b75caae1ba98dda573fe45 */}
   if (req.method !== 'POST') {
     res.json('should be a POST request');
     return;
@@ -12,7 +14,7 @@ export default async function handler(req,res) {
     name,contactNumber,
     district,streetAddress,city,
     pickupFromStore,deliveryFee,total,Final,weightTotal,
-    cartProducts,
+    cartProducts, email,
   } = req.body;
   await mongooseConnect();
   const productsIds = cartProducts;
@@ -34,6 +36,31 @@ export default async function handler(req,res) {
       });
     }
   }
+
+  /*const mailersend = new MailerSend({
+    apiKey: "mlsn.2af048a5f70859e7aa7fdfec0513606fd56008ac04b75caae1ba98dda573fe45",
+  });
+  
+  const sendEmail = async (email, name) => {
+    try {
+      const recipients = [new Recipient(email, name)];
+  
+      const emailParams = new EmailParams()
+        .setFrom("info@neo.lk")
+        .setFromName("Neo Graphics")
+        .setRecipients(recipients)
+        .setSubject("Subject")
+        .setHtml("Greetings from the team, you got this message through MailerSend.")
+        .setText("Greetings from the team, you got this message through MailerSend.");
+  
+      const response = await mailersend.send(emailParams);
+      console.log("✅ Email sent successfully:", response);
+    } catch (error) {
+      console.error("❌ Failed to send email:", error.message);
+    }
+  };
+  
+  sendEmail(email, name);*/
 
   const orderDoc = await Order.create({
     line_items,name,contactNumber,city,pickupFromStore,deliveryFee,total,Final,weightTotal,

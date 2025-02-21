@@ -15,6 +15,7 @@ export default function CartPage() {
     const { cartProducts, addProduct, removeProduct, clearCart } = useContext(CartContext);
     const [products, setProducts] = useState([]);
     const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
     const [contactNumber, setContactNumber] = useState('');
     const [city, setCity] = useState('');
     const [district, setDistrict] = useState('');
@@ -55,12 +56,12 @@ export default function CartPage() {
 
     async function placeOrder() {
         if (pickupFromStore) {
-            if (!name || !contactNumber) {
+            if (!name || !contactNumber || !email) {
                 alert('Please fill in the order information');
                 return;
             }
         } else {
-            if (!name || !contactNumber || !city || !district || !streetAddress) {
+            if (!name || !contactNumber || !email || !city || !district || !streetAddress) {
                 alert('Please fill in the order information');
                 return;
             }
@@ -70,7 +71,7 @@ export default function CartPage() {
             setLoading(true);
             const response = await axios.post('/api/checkout', {
                 name, contactNumber, city, district, streetAddress, pickupFromStore,
-                cartProducts,
+                cartProducts, email,
             });
             if (response.data.url) {
                 router.push(response.data.url); // Use Next.js router for navigation
@@ -223,6 +224,12 @@ export default function CartPage() {
                                             value={name}
                                             name="name"
                                             onChange={ev => setName(ev.target.value)} />
+                                        <input type="email"
+                                        className='px-3 py-2  border-slate-300 rounded-sm shadow-md'
+                                        placeholder="Email"
+                                        value={email}
+                                        name="email"
+                                        onChange={ev => setEmail(ev.target.value)} />
                                         <input type="tel"
                                             className='px-3 py-2  border-slate-300 rounded-sm shadow-md'
                                             placeholder="Phone Number"
