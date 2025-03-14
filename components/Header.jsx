@@ -37,12 +37,12 @@ export default function Header() {
   }
 
   
-  let mobileViewNav = 'hidden';
+  let mobileViewNav = 'h-0';
 
   if (mobileView == 'false'){
-    mobileViewNav = 'hidden'
+    mobileViewNav = 'h-0 overflow-hidden opacity-0'
   } else {
-    mobileViewNav = ''
+    mobileViewNav = 'opacity-0 h-screen'
   }
   return (
     <div className='w-full flex justify-center'>
@@ -151,14 +151,15 @@ export default function Header() {
 
 
 
-            <nav className={`animate__animated animate__fadeInRight mobileViewNav flex fixed flex-col gap-10 text-white top-0 z-10 bg-lime-500 w-screen h-screen p-10 ${mobileViewNav}`}>
-            <button onClick={() => setMobileView('false')} className='nav-btn  flex justify-end pr-10   lg:hidden'>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-6 h-6">
-              <path fill-rule="evenodd" d="M13.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L11.69 12 4.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd" />
-              <path fill-rule="evenodd" d="M19.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06L17.69 12l-6.97-6.97a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd" />
-            </svg>
-
-              </button>
+            <nav className={`animate__animated animate__fadeInRight fixed mobileViewNav top-0 z-10 bg-lime-500 w-screen ${mobileViewNav}`}>
+              <div className='p-10 flex flex-col gap-10 text-white'>
+                <button onClick={() => setMobileView('false')} className='nav-btn  flex justify-end pr-10   lg:hidden'>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-6 h-6">
+                    <path fill-rule="evenodd" d="M13.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L11.69 12 4.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd" d="M19.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06L17.69 12l-6.97-6.97a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              
                 <div className='nav-items'>
                   <Link href={'/'} onClick={() => (setLoading(true))} className='flex gap-2 items-center text-white '>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-5 h-5">
@@ -201,6 +202,7 @@ export default function Header() {
                       Cart({cartProducts.length})
                   </Link>
                 </div>
+              </div>
             </nav>
           </div>
       </header>

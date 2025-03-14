@@ -33,19 +33,18 @@ export default function CategoriesPage({ categories , loading}) {
                   category?.parent?.name ? (
                     ''
                   ) : (
-                    <Link key={category._id} href={`/Category/${category._id}`} className='category-container' data-aos='fade'>
-                        {category.image ? (<LazyLoadImage 
-                                                effect="blur"
-                                                wrapperProps={{
-                                                    style: {transitionDelay: "1s"},
-                                                }} 
-                                                src={`${category.image}`} 
-                                                alt="" 
-                                                className='w-64 h-64 object-cover rounded-t-md drop-shadow-xl bg-transparent'/>) : null}
+                    <Link key={category._id} href={`/Category/${category._id}`} className='category-container group/cato' data-aos='fade'>
+                        {category.image ? (
+                          <div className='w-64 h-64 overflow-hidden'>
+                            <img 
+                              src={`${category.image}`} 
+                              alt="" 
+                              className='object-cover rounded-t-md drop-shadow-xl bg-transparent duration-500 scale-100 transition-all group-hover/cato:scale-105'/>
+                          </div>
+                          ) : null}
                         <div className='w-64 px-5 py-3 text-center rounded shadow-md tracking-wider bg-white/40'>
                             {category.name}
                         </div>
-                        {category.description?  (<cato className="category-disc absolute top-0 w-full h-full bg-white/70 rounded-md p-7">{category.description}</cato>) : null}
                     </Link>
                   )
                 ))

@@ -19,11 +19,11 @@ export default function ProductPage({product}) {
       <div className="w-full min-h-screen flex justify-center">
       <Center>
         <div className="sm:px-10 py-10 single-product-div-1">
-          <div className="sm:flex justify-center gap-5  w-full single-product-div-1-1">
-            <div className="bg-white rounded p-10 w-full sm:max-w-96 sm:w-96 h-auto single-product-div-1-1-1">
+          <div className="sm:flex justify-center items-center gap-5  w-full single-product-div-1-1">
+            <div className=" rounded p-10 w-full sm:max-w-500px sm:w-[30vw] h-auto single-product-div-1-1-1">
               <ProductImages images={product.images} />
             </div>
-            <div className="p-10 border-0 shadow-lg rounded-lg sm:w-96 h-auto md:h-fit justify-between flex flex-col single-product-div-1-1-2">
+            <div className="px-10 sm:py-10 rounded-lg sm:w-[30vw] h-auto md:h-fit justify-between flex flex-col single-product-div-1-1-2">
               <div className="">
                 <div className="text-2xl mb-5 text-main-dark">{product.title}</div>
                 <p className="text-sm text-main-dark whitespace-pre-line">{product.description} </p>

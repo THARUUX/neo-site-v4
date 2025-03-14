@@ -166,13 +166,6 @@ a{
     cursor: pointer;
 }
 
-.category-container:hover{
-    background-size: cover;
-    background-color:rgba(202, 255, 169, 0.4);
-    /*background-image: url('../public/Notebooks/_bd4610e6-f9e9-4011-be96-01610977acd0.jpeg');*/
-}
-
-
 .loader{
     background-color: #ffffffd5;
     z-index: 99;
@@ -223,21 +216,6 @@ a{
    to {
       transform: rotate(360deg);
    }
-}
-
-.backbtn{
-    transition: 0.3s;
-    rotate: 0deg;
-    scale: 1;
-    background-color: #7df020;
-}
-
-.backbtn:hover{
-    background-color:rgb(81, 255, 0);
-    backdrop-filter: blur(16px) brightness(2.38);
-    rotate: -20deg;
-    scale: 1.02;
-    filter: drop-shadow(1px 3px 10px #666666a5);
 }
 
 .typed-cursor {

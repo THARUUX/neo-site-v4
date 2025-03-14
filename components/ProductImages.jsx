@@ -7,36 +7,34 @@ const Image = styled.img`
   `;
 
 const ImageButton = styled.div`
-    border: 2px solid #ccc;
     ${props => props.active ? `
-      border-color: #ccc;
+      filter: brightness(90%);
+      scale: 1.05;
     ` : `
       border-color: transparent;
     `}
-    height: 40px;
-    padding: 2px;
     cursor: pointer;
-    border-radius: 5px;
   `;
 
 
 export default function ProductImages({images}) {
   const [activeImage,setActiveImage] = useState(images?.[0]);
   return (
-    <>
-      <div className="text-center mb-5 h-auto">
-        <Image className="w-full h-full object-cover shadow-lg" width={0} height={0} src={activeImage} alt=""/>
+    <div className="flex flex-col sm:flex-row items-end">
+      <div className="h-auto sm:order-2 order-1 w-full sm:w-3/4 overflow-hidden">
+        <Image className="w-full h-auto scale-105 object-cover cursor-pointer duration-500 hover:scale-110" width={0} height={0} src={activeImage} alt=""/>
       </div>
-      <div className="flex gap-3 flex-grow-0 mt-2">
+      <div className="flex w-full sm:w-1/4 sm:order-1 order-2 flex-row sm:flex-col justify-end">
         {images.map(image => (
           <ImageButton
+          className="w-1/4 sm:w-full duration-300"
             key={image}
             active={image===activeImage}
             onClick={() => setActiveImage(image)}>
-            <Image src={image} width={40} height={0} alt=""/>
+            <Image className="object-cover w-full" src={image} width={0} height={0} alt=""/>
           </ImageButton>
         ))}
       </div>
-    </>
+    </div>
   );
 }
