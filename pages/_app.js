@@ -19,9 +19,8 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <CartContextProvider>
-        <ToastContainer>
+        <ToastContainer />
           <Component {...pageProps} />
-        </ToastContainer>
       </CartContextProvider>
     </>
   );
