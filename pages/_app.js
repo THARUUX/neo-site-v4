@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import {CartContextProvider} from "@/components/CartContext";
-//import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import { useEffect } from "react";
 import AOS from "aos";
 import 'aos/dist/aos.css';
@@ -20,7 +19,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <CartContextProvider>
-        <Component {...pageProps} />
+        <ToastContainer>
+          <Component {...pageProps} />
+        </ToastContainer>
       </CartContextProvider>
     </>
   );

@@ -8,7 +8,6 @@ import { CartContext } from '@/components/CartContext';
 import Footer from '@/components/Footer';
 import Loading from '@/components/Loading';
 import BackButton from '@/components/BackButton';
-import Image from 'next/image';
 
 export default function CartPage() {
     const router = useRouter();
@@ -53,6 +52,7 @@ export default function CartPage() {
     function moreOfThisProduct(id) {
         addProduct(id);
     }
+    
 
     async function placeOrder() {
         if (pickupFromStore) {
@@ -71,11 +71,12 @@ export default function CartPage() {
             setLoading(true);
             const response = await axios.post('/api/checkout', {
                 name, contactNumber, city, district, streetAddress, pickupFromStore,
-                cartProducts, email,
+                cartProducts, email, deliveryFee , Final , total
             });
             if (response.data.url) {
                 router.push(response.data.url); // Use Next.js router for navigation
             }
+            
         } catch (error) {
             console.error("Error fetching data:", error.message);
             alert('Error placing order. Please try again later.');
@@ -99,7 +100,7 @@ export default function CartPage() {
 
     function clearTheCart() {
         localStorage.removeItem('cart');
-    }    
+    }
 
     useEffect(() => {
         if (isSuccess) {
@@ -155,7 +156,7 @@ export default function CartPage() {
                                                 <tr key={product._id} className='h-40 border-b-2 border-gray-300 cart-item-row'>
                                                     <td className='flex h-40 items-center gap-5 text-xl p-5 cart-item-row-column-one'>
                                                         <div className='h-full'>
-                                                            <img src={product.images[0]} alt="" className='cart-images h-32  rounded shadow-md' />
+                                                            <img src={product.images[0]} alt="" className='cart-images h-32  rounded ' />
                                                         </div>
                                                         {product.title}
                                                     </td>
@@ -225,11 +226,11 @@ export default function CartPage() {
                                             name="name"
                                             onChange={ev => setName(ev.target.value)} />
                                         <input type="email"
-                                        className='px-3 py-2  border-slate-300 rounded-sm shadow-md'
-                                        placeholder="Email"
-                                        value={email}
-                                        name="email"
-                                        onChange={ev => setEmail(ev.target.value)} />
+                                            className='px-3 py-2  border-slate-300 rounded-sm shadow-md'
+                                            placeholder="Email"
+                                            value={email}
+                                            name="email"
+                                            onChange={ev => setEmail(ev.target.value)} />
                                         <input type="tel"
                                             className='px-3 py-2  border-slate-300 rounded-sm shadow-md'
                                             placeholder="Phone Number"

@@ -37,31 +37,6 @@ export default async function handler(req,res) {
     }
   }
 
-  /*const mailersend = new MailerSend({
-    apiKey: "mlsn.2af048a5f70859e7aa7fdfec0513606fd56008ac04b75caae1ba98dda573fe45",
-  });
-  
-  const sendEmail = async (email, name) => {
-    try {
-      const recipients = [new Recipient(email, name)];
-  
-      const emailParams = new EmailParams()
-        .setFrom("info@neo.lk")
-        .setFromName("Neo Graphics")
-        .setRecipients(recipients)
-        .setSubject("Subject")
-        .setHtml("Greetings from the team, you got this message through MailerSend.")
-        .setText("Greetings from the team, you got this message through MailerSend.");
-  
-      const response = await mailersend.send(emailParams);
-      console.log("✅ Email sent successfully:", response);
-    } catch (error) {
-      console.error("❌ Failed to send email:", error.message);
-    }
-  };
-  
-  sendEmail(email, name);*/
-
   const orderDoc = await Order.create({
     line_items,name,contactNumber,city,pickupFromStore,deliveryFee,total,Final,weightTotal,
     streetAddress,district,paid:false,

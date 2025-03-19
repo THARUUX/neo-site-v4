@@ -20,7 +20,7 @@ export default function Thank() {
                 console.log(orderList.data[41]);
 
                 if (orderList.data.length > 0) {
-                    const lastOrder = orderList.data[orderList.data.length - 1];
+                    const lastOrder = orderList.data[0];
                     setLOI(lastOrder._id);
                 }
             } catch (error) {
