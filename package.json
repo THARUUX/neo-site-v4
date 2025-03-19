@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
@@ -29,6 +30,7 @@
     "react-lazy-load-image-component": "^1.6.2",
     "react-toastify": "^10.0.5",
     "sharp": "^0.33.5",
+    "shopify-api-node": "^3.14.2",
     "styled-components": "^6.1.9",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",

@@ -6,7 +6,7 @@ import 'aos/dist/aos.css';
 import 'animate.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { Analytics } from "@vercel/analytics/react"
 
 
 export default function App({ Component, pageProps }) {
@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <CartContextProvider>
+        <Analytics/>
         <ToastContainer  />
           <Component {...pageProps} />
       </CartContextProvider>

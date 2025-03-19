@@ -25,7 +25,7 @@ export default function ProductBox({_id,title,description,price,images}) {
             <img src={images?.[0]} alt="" className="h-full w- duration-300 hover:scale-105  object-cover rounded-lg"/>
           </div>
         </Link>
-        <div className="p-3 flex flex-col  gap-3 rounded-lg bg-white">
+        <div className="p-3 flex flex-col  gap-3 rounded bg-white">
           <div href={url} className="">{title}</div>
           <div className="flex">
             <div className="flex flex-grow mb-0 items-center text-xl font-black">

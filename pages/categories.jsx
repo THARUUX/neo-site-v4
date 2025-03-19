@@ -22,27 +22,27 @@ export default function CategoriesPage({ categories , loading}) {
       <Header />
       <div className='min-h-screen w-full flex justify-center'>
         <Center>
-          <div className='py-16'>
+          <div className='py-10 sm:py-16'>
             <div className='text-2xl text-main-dark' data-aos="fade-right">Categories</div>
             <div className='w-full pt-10'>
               Available Categories
             </div>
-            <div className='mt-10 w-full flex flex-wrap gap-16 category-list-container'>
+            <div className='mt-10 w-full flex justify-between flex-wrap gap-10 sm:gap-16 category-list-container'>
               {categories?.length > 0 ? (
                 categories.map(category => (
                   category?.parent?.name ? (
                     ''
                   ) : (
-                    <Link key={category._id} href={`/Category/${category._id}`} className='category-container group/cato' data-aos='fade'>
+                    <Link key={category._id} href={`/Category/${category._id}`} className='category-container w-36 h-36 sm:w-64 sm:h-64 group/cato' data-aos='fade'>
                         {category.image ? (
-                          <div className='w-64 h-64 overflow-hidden'>
+                          <div className='w-full h-auto overflow-hidden'>
                             <img 
                               src={`${category.image}`} 
                               alt="" 
                               className='object-cover rounded-t-md drop-shadow-xl bg-transparent duration-500 scale-100 transition-all group-hover/cato:scale-105'/>
                           </div>
                           ) : null}
-                        <div className='w-64 px-5 py-3 text-center rounded shadow-md tracking-wider bg-white/40'>
+                        <div className='w-full px-5 py-3 text-xs sm:text-md text-center rounded shadow-md tracking-wider bg-white/40'>
                             {category.name}
                         </div>
                     </Link>

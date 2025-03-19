@@ -22,20 +22,20 @@ export default function HomePage({ featuredProduct, newProducts, loading, produc
         <Featured product={featuredProduct} />
 
         <Center>
-          <div className="w-full flex flex-wrap py-20 gap-10">
+          <div className="w-full flex justify-between flex-wrap py-20 sm:gap-10 gap-5">
                 {categories?.length > 0 ? (
                   categories.map(category => (
                     category?.parent?.name ? (
                       ''
                     ) : (
-                      <Link key={category._id} href={`/Category/${category._id}`} className='category-container group/cato' data-aos='fade'>
+                      <Link key={category._id} href={`/Category/${category._id}`} className='w-[9.5rem] h-[9.5rem] sm:w-64 sm:h-64 category-container group/cato' data-aos='fade'>
                           {category.image ? (
-                            <div className='w-64 h-64 overflow-hidden'>
+                            <div className='w-full h-auto overflow-hidden'>
                               <img 
                                 src={`${category.image}`} 
-                                alt="" 
+                                alt={category.name} 
                                 className='object-cover  drop-shadow-xl bg-transparent duration-500 scale-100 transition-all group-hover/cato:scale-105'/>
-                              <div className='w-full group-hover/cato:brightness-110 duration-300 bottom-0 backdrop-blur-sm px-5 py-3 absolute text-center shadow-md tracking-wider bg-white/40'>
+                              <div className='w-full text-xs sm:text-md group-hover/cato:brightness-110 duration-300 bottom-0 backdrop-blur-sm px-5 py-2 sm:py-3 absolute text-center shadow-md tracking-wider bg-white/40'>
                                   {category.name}
                               </div>
                             </div>

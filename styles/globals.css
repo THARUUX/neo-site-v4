@@ -116,26 +116,6 @@ a{
     background-color: #a8bbbf;
   }
 
-
-.nav-items{
-    position: relative;
-    padding: 1%;
-    top: 0px;
-    transition: 0.2s;
-    color: rgb(10, 50, 6);
-}
-
-.nav-items:hover, .active-link{
-    top: -3px;
-    background-color: rgb(158, 239, 18);
-    border-radius: 5px;
-    filter: drop-shadow(0px 5px 10px #0000001c);
-}
-
-.nav-items:hover .nav-items svg{
-    color: rgb(158, 239, 18);
-}
-
 .add-to-cart-btn{
     background-color: #65cd21 ;
     color: white;

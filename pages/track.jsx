@@ -87,7 +87,7 @@ export default function track() {
 
                             <div className="mt-4">
                                 <p><strong>Delivery Fee:</strong> Rs {order.deliveryFee}/-</p>
-                                <p><strong>Total:</strong> Rs {order.Final}/-.75v</p>
+                                <p><strong>Total:</strong> Rs {order.Final}/-</p>
                                 <p><strong>Paid:</strong> {order.paid ? "Paid" : "Not Paid"}</p>
                             </div>
                         </div>
